@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>İnternet Teknolojileri Uzaktan Eğitim Ödevi</title>
+
+	<style>
+		ul {
+			list-style: none;
+		
+			padding: 0;
+			position: absolute;
+			width: 1000px;
+			margin: 0 auto;
+			
+		}
+
+		li {
+			display: inline-block;
+			float: left;
+			margin-right: 1px;
+		}
+
+
+		li a {
+			display: block;
+			background: #2f3036;
+			min-width: 140px;
+			color: #fff;
+			text-decoration: none;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+
+		li a:hover {
+			background: #19C589;
+		}
+
+		li:hover ul a {
+			background: #f3f3f3;
+			color: black;
+			height: 40px;
+			line-height: 40px;
+		}
+
+		li:hover ul a:hover {
+			background: #19C589;
+			color: #fff;
+		}
+
+		li ul li {
+			display: block;
+			float: none;
+		}
+
+		li ul li a {
+			text-align: left;
+			min-width: 100px;
+			padding: 0 20px;
+		}
+
+		li:hover a {
+			background: #19C589;
+		}
+
+		li ul {
+			display: none;
+		}
+
+		ul li a:hover+.hidden,
+		.hidden:hover {
+			display: block;
+		}
+
+	</style>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div id="nav">
+		<div class="icerik">
+	<ul>
+		<li>
+			<a href="index.html">Anasayfa</a>
+		</li>
+		
+		<li>
+			<a href="#">Kurslar</a>
+			<ul class="hidden">
+				<li><a href="JavaScriptGiris.html">JavaScript Giriş</a></li>
+				<li><a href="syntax.html">JavaScript Yazılım (Syntax) yapısı</a></li>
+				<li><a href="degiskenler.html">Değişkenler</a></li>
+				<li><a href="operatorler.html">Operatörler</a></li>
+				<li><a href="aritmetik.html">Aritmetik</a></li>
+				<li><a href="veritipleri.html">Veri Tipleri</a></li>
+				<li><a href="fonksiyonlar.html">Fonksiyon Yapısı</a></li>
+				<li><a href="events.html">Olaylar (Events)</a></li>
+				<li><a href="islemler.html">Stringler, Sayılar, Diziler ve Diziİşlemleri</a></li>
+				<li><a href="kosulyapilari.html">If koşul yapıları</a></li>
+				<li><a href="donguler.html">Döngüler</a></li>
+				<li><a href="tipdonusumleri.html">Tip Dönüşümleri</a></li>
+				<li><a href="genelyapisi.html">Çalışma yapısı ve genel mimarisi</a></li>
+			</ul>
+
+		</li>
+		
+
+
+	</ul>
+	</div>
+	<div class="icerik mt20">
+
+		<div id="blog-post-icerik">
+
+			<div class="blog-post kutu">
+				
+				<div class="blog-post-body p20">
+					<h2 class="blog-title">Javascript Genel Yapısı ve Mimarisi </h2>
+					
+
+					
+
+					
+					<p class="blog-text">
+						
+						Javascript’in bazı özellikleri oldukça güzelken aynı zamanda bu özellikler o kadar iyi olmayabiliyor. Bir açılış ve kapanış komut dosyası etiketini HTML dosyasının başına eklemek ve tam oraya bir Spaghetti kodu atmak kuşkusuz en basit özelliklerden biridir. Bu çok işe yaramaktadır… Yoksa yaramamakta mıdır?<br>
+
+Spaghetti’nin ne olduğunu merak ediyor olabilirsiniz. Hemen cevaplayalım:<br>
+
+Spaghetti kodu adının verilmesi aslında bu kod yapısının karmaşık ve birbirine dolanmış gibi olmasından kaynaklanmaktadır; bu isim biraz da bu kodu kötülemek için verilmiştir.<br>
+
+Bu kodun sürdürülebilirliği, hata ayıklanabilmesi neredeyse imkansız gibidir ve hatalar oluşmasına oldukça müsaittir. Web tasarımı ve geliştirmesi işi zaten oldukça yorucudur, bu işlerin daha da zor hale gelmesini istemeyiz, öyle değil mi?<br>
+
+Peki, öyleyse bu tarz bir kodu yazmaktan nasıl kurtulabiliriz? Bizce bunun iki adet yöntemi bulunuyor. Elbette bu yöntemlerin sadece bizim fikrimiz olduğunu vurgulamakta yarar var. Bunlardan birincisi hizmetinizin içinde yer alan sayısız Javascript çerçevelerini (framework) kullanmaktır. Diğeri ise, yapı ve kalıplar/desenler şeklinde Javascript kodu yazmayı öğrenmektir.<br>
+
+MVP, MCV ve MVVM gibi yaygın kullanılan kalıplar/desenler bu işle uğraşanlara çözümler oluşturma konusunda yardımcı olmaktadır. Bu yazımızda sizler için ağırlıklı olarak MVC kalıbına/desenine yer vereceğiz. (MVC = Model View Controller)<br>
+
+MODEL/Veriler/Veri Katmanı: Burası uygulamanızdaki verilerin depolandığı yerdir. Bu model adı verilen kısım denetleyiciler ve görünüşlerden, daha geniş kapsamdan bilinçli olarak ayrılmıştır. Modelde bir değişiklik olduğu zaman değişimin Event Dispatcher bölümünde meydana geldiğini gösteren gözlemciler bunu bildirecektir.<br>
+
+VIEW/Arayüz/Sunum Katmanı: Burası sizin DOM’a izin veren ve Event Handlers (onmouseover, click vs.) gibi kısımları kurmanızdan sorumlu olan uygulamanızın bir bölümüdür. Bu arayüz kısmı aynı zamanda HTML sunumunuzdan sorumlu olan bölümdür. Kullanıcı giriş alanını kullanarak bir veri girdiği zaman arayüz/view bölümü bir Event Dispatcher kullanacak, bu da denetleyicilere bildirilecek ve denetleyiciler de modeli güncelleyecektir. View mode içinde hızlı bir ayrıştırma yapmayı sağlamaktadır.<br>
+
+Controller/Denetleyici/Uygulama Mantığı: Denetleyici, View ile Model arasındaki tutkal gibidir. Controller, Model veya View içinde meydana gelen olayları işler veya yanıt verir. Kullanıcı View kısmını değiştirdiğinde Modeli günceller ve aynı zamanda Model değiştiği zaman View kısmını günceller. Kullanıcı görev eklemeyi tıkladığı zaman bu tıklama denetleyiciye aktarılır ve bu eklenen görevle denetleyici modeli modifiye eder. Diğer başka karar verici veya mantık durumları bu bölümde performans gösterir (HTML kullanarak yerel depolama, veri tabanına eşzamansız kayıt yapma vs.).
+<br>
+Event Dispatcher: Event Dispatcher üzerine sayısız metodu, fonksiyonu eklemenizi sağlayan bir nesnedir.<br>
+
+Genel Bakış<br>
+
+Şimdiye kadar MVC mimarisinin ne olduğunu ve neden Javascript kullanmanız gerektiğine dair temel bir anlayışa sahip oldunuz. Şimdi uygulamanızı/app yapmaya hazırsınız. Bu dersimizin nasıl işleyeceğine dair siz kısaca bilgi verelim. İlk olarak size bir kod sunacağız. Böylece işlemi inceleyebileceksiniz ve bu noktadan hareketle gelişim gösterebileceksiniz. Bazı temel kavramlar biraz zorlayıcı gelebilir. Bunları öğrenene kadar aşağıdaki örnekleri incelemeniz yararlı olacaktır. Bu dersimizi anlamanız için biraz Javascript deneyimine sahip olmanız ve temel HTML kodları ile ilgili bilgi sahibi olmanız gerekli olabilir. Java konusunda yeterli bilginiz yoksa önce bu konuda biraz araştırma yapmanız gerekebilir.<br>
+
+						</p>
+						
+							
+
+						
+					<br>
+					<br>
+					<br>
+					<p class="blog-text-2">
+						Diğer Başlıklar
+					</p>
+
+					<ul class="tags">
+						<li><a href="" class="tag btn " >Asp.net</a></li>
+						<li><a href="" class="tag btn">Angular</a></li>
+						<li><a href="" class="tag btn">React</a></li>
+						<li><a href="" class="tag btn">NodeJs</a></li>
+					</ul>
+
+				</div>
+			</div>
+			
+
+
+
+</body>
+
+</html>
